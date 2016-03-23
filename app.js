@@ -7,7 +7,7 @@ cors = require('cors')
 app.use(cors({origin: true, allowedHeaders: ["X-Requested-With", "Content-Type" ], methods: ["PUT", "GET", "POST", "DELETE", "OPTIONS"]}))
 
 
-server.listen(proces.env.PORT || 3000, function(){
+server.listen(process.env.PORT || 3000, function(){
   console.log('listening')
 })
 
