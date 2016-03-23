@@ -1,8 +1,8 @@
 var Express = require('express')
 var app = Express()
 var server = require('http').Server(app)
-// var io = require('socket.io')(server)
-var io = require('socket.io').lister(server)
+var io = require('socket.io')(server, {log:false, origins:'*:*'})
+// var io = require('socket.io').lister(server)
 cors = require('cors')
 
 app.use(cors())
@@ -17,9 +17,9 @@ app.use(function(req, res, next) {
     });
 
 
-// server.listen(3000, function(){
-//   console.log('listening on localhost 3000')
-// })
+server.listen(3000, function(){
+  console.log('listening on localhost 3000')
+})
 
 io.on('connection', function(socket){
   console.log('someone has entered the room')
