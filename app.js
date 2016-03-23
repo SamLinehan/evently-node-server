@@ -4,20 +4,11 @@ var server = require('http').Server(app)
 var io = require('socket.io')(server)
 cors = require('cors')
 
-app.use(cors())
+app.use(cors({origin: true, allowedHeaders: ["X-Requested-With", "Content-Type" ], methods: ["PUT", "GET", "POST", "DELETE", "OPTIONS"]}))
 
 
-app.use(function(req, res, next) {
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "X-Requested-With");
-    res.header("Access-Control-Allow-Headers", "Content-Type");
-    res.header("Access-Control-Allow-Methods", "PUT, GET, POST, DELETE, OPTIONS");
-    next();
-});
-
-
-server.listen(3000, function(){
-  console.log('listening on localhost 3000')
+server.listen(proces.env.PORT || 3000, function(){
+  console.log('listening')
 })
 
 io.on('connection', function(socket){
