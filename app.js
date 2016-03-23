@@ -6,6 +6,9 @@ cors = require('cors')
 
 app.use(cors())
 
+io.set('origins', 'https://linehan-capstone.firebaseapp.com:*' );
+
+
 server.listen(3000, function(){
   console.log('listening on localhost 3000')
 })
