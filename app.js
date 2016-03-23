@@ -23,9 +23,9 @@ io.on('connection', function(socket){
   console.log('someone has entered the room')
 })
 
-io.on('connection', function(socket){
+io.sockets.on('connection', function(socket){
   socket.on('post event', function(message){
     console.log(message)
-    io.emit('post event', message)
+    io.sockets.emit('display event', message)
   })
 })
