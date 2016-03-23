@@ -2,6 +2,9 @@ var Express = require('express')
 var app = Express()
 var server = require('http').Server(app)
 var io = require('socket.io')(server)
+cors = require('cors')
+
+app.use(cors())
 
 server.listen(3000, function(){
   console.log('listening on localhost 3000')
